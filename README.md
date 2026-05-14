@@ -1,4 +1,4 @@
-# 🪷 Sanskrit Text Segmentation System
+#  Sanskrit Text Segmentation System
 
 A comprehensive, research-grade deep learning pipeline for separating Sanskrit Devanagari text from decorative manuscript elements (borders, illustrations, stains, and artifacts).
 
@@ -6,7 +6,7 @@ This project implements a highly customized **Mini U-Net Convolutional Neural Ne
 
 ---
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 * **Deep Learning:** `PyTorch`, `TorchMetrics`
 * **Computer Vision:** `OpenCV (cv2)`, `NumPy`
@@ -16,7 +16,7 @@ This project implements a highly customized **Mini U-Net Convolutional Neural Ne
 
 ---
 
-## 🗺️ Pipeline Architecture
+##  Pipeline Architecture
 
 ```mermaid
 flowchart LR
@@ -47,7 +47,7 @@ flowchart LR
 
 ---
 
-## 🧠 Model Architecture: The "Mini U-Net"
+##  Model Architecture: The "Mini U-Net"
 
 Standard U-Nets are designed for medical imaging. This architecture was custom-engineered to handle the unique challenges of historical Indian manuscripts (thin *shirorekha* strokes combined with massive, intricate floral borders).
 
@@ -67,7 +67,7 @@ A $1 \times 1$ Convolution paired with a `Sigmoid` activation outputs a probabil
 
 ---
 
-## 🔄 End-to-End Pipeline Methodology
+##  End-to-End Pipeline Methodology
 
 ### Phase 1: Data Preparation & Pseudo-Ground Truth
 Because historical manuscripts rarely have pixel-perfect manual annotations, the pipeline includes an **Automatic Mask Generator** (`auto_mask_generator.py`). 
