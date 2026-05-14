@@ -1,0 +1,41 @@
+# ============================================================
+# Model Architecture Configuration
+# ============================================================
+# Defines the Mini U-Net architecture hyperparameters.
+# ============================================================
+
+model:
+  name: "MiniUNet"
+  in_channels: 1          # Grayscale input
+  out_channels: 1         # Binary segmentation output
+
+  # Encoder channel progression
+  encoder_channels: [32, 64, 128]
+
+  # Bottleneck
+  bottleneck_channels: 256
+
+  # Multi-scale enhancement module
+  multiscale:
+    enabled: true
+    branches: [1, 3, 5]   # Kernel sizes for parallel branches
+
+  # Dilated convolution module
+  dilated:
+    enabled: true
+    rates: [2, 4]          # Dilation rates
+
+  # Regularization
+  dropout_rate: 0.3
+
+  # Residual connections inside conv blocks
+  use_residual: true
+  
+  # Max pooling vs Strided convolutions
+  use_maxpooling: false
+
+  # Research extensions (optional)
+  extensions:
+    attention_gates: false
+    deep_supervision: false
+    spatial_pyramid_pooling: false

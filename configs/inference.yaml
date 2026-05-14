@@ -1,0 +1,50 @@
+# ============================================================
+# Inference Configuration
+# ============================================================
+# Controls the inference pipeline: input/output paths,
+# patch settings, thresholding, and postprocessing.
+# ============================================================
+
+# --- Paths ---
+paths:
+  input_dir: "dataset/raw"
+  output_dir: "outputs/predictions"
+  mask_dir: "outputs/masks"
+  checkpoint: "outputs/checkpoints/best_model.pth"
+
+# --- Patch Inference ---
+patch:
+  size: 256
+  overlap: 64
+  batch_size: 16
+
+# --- Thresholding ---
+threshold:
+  method: "fixed"          # Options: fixed, otsu, adaptive
+  value: 0.5               # Used when method = fixed
+  adaptive_block_size: 11  # Used when method = adaptive
+  adaptive_c: 2
+
+# --- Postprocessing ---
+postprocessing:
+  opening:
+    enabled: true
+    kernel_size: 3
+    iterations: 1
+  closing:
+    enabled: true
+    kernel_size: 5
+    iterations: 2          # Extra closing to reconnect shirorekha
+  min_component_area: 50   # Remove connected components smaller than this
+
+# --- Output Modes ---
+output:
+  binary_mask: true
+  text_extraction: true
+  bounding_boxes: true
+  overlay_visualization: true
+
+# --- Hardware ---
+hardware:
+  device: "auto"
+  mixed_precision: false
